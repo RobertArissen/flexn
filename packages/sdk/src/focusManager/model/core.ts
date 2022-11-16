@@ -8,6 +8,7 @@ import { View, Recycler, Screen, AbstractFocusModel } from '../types';
 
 import Scroller from './scroller';
 import Logger from './logger';
+import { DIRECTION_HORIZONTAL, DIRECTION_VERTICAL } from '../constants';
 class CoreManager {
     public _focusMap: {
         [key: string]: AbstractFocusModel;
@@ -80,7 +81,6 @@ class CoreManager {
 
         const nextScreen = screens.find((c) => c?.hasStealFocus()) ?? screens[0];
 
-
         if (nextScreen) {
             nextScreen.setFocus(nextScreen.getFirstFocusableOnScreen());
         }
@@ -92,7 +92,7 @@ class CoreManager {
         }
 
         if (this._currentFocus) {
-            if (this._currentFocus.node.current && (!isPlatformTizen && !isPlatformWebos)) {
+            if (this._currentFocus.node.current && !isPlatformTizen && !isPlatformWebos) {
                 // @ts-ignore
                 UIManager.dispatchViewManagerCommand(this._currentFocus.nodeId, 'cmdBlur', null);
             }
@@ -102,7 +102,7 @@ class CoreManager {
 
         this._currentFocus = cls;
 
-        if (cls.node.current && (!isPlatformTizen && !isPlatformWebos)) {
+        if (cls.node.current && !isPlatformTizen && !isPlatformWebos) {
             // @ts-ignore
             UIManager.dispatchViewManagerCommand(cls.nodeId, 'cmdFocus', null);
         }
@@ -131,7 +131,7 @@ class CoreManager {
         let target: any;
         const parent = this._currentFocus?.getParent();
         if (parent?.isRecyclable() && this._currentFocus) {
-            if (['up', 'down'].includes(direction)) {
+            if (DIRECTION_VERTICAL.includes(direction)) {
                 const layouts = parent?.isNested() ? parent.getParent()?.getLayouts() : parent?.getLayouts();
                 const nextLayout = layouts[nextIndex];
                 if (nextLayout) {
@@ -140,7 +140,7 @@ class CoreManager {
                         y: nextLayout.y,
                     };
                 }
-            } else if (['left', 'right'].includes(direction)) {
+            } else if (DIRECTION_HORIZONTAL.includes(direction)) {
                 const layouts = parent?.getLayouts();
                 const nextLayout = layouts[nextIndex];
                 if (nextLayout) {

@@ -45,7 +45,7 @@ class Scroller {
     public scrollTo(cls: AbstractFocusModel, scrollTarget: { x: number; y: number }, direction: string) {
         let parentSW = cls.getParent() as ScrollView;
 
-        if (['up', 'down'].includes(direction) && parentSW.isNested()) {
+        if (DIRECTION_VERTICAL.includes(direction) && parentSW.isNested()) {
             parentSW = cls.getParent()?.getParent() as ScrollView;
         }
 

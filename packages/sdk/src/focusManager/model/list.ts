@@ -2,6 +2,7 @@ import Recycler from './recycler';
 import Row from './row';
 import Core from './core';
 import AbstractFocusModel from './AbstractFocusModel';
+import { DIRECTION_DOWN, DIRECTION_UP } from '../constants';
 
 class List extends Recycler {
     constructor(params: any) {
@@ -41,11 +42,11 @@ class List extends Recycler {
     private _isInBounds(direction: string): boolean {
         const current = this.getCurrentFocusIndex();
 
-        if (direction === 'up' && current === 0) {
+        if (DIRECTION_UP.includes(direction) && current === 0) {
             return false;
         }
 
-        if (direction === 'down' && current === this.getLayouts().length - 1) {
+        if (DIRECTION_DOWN.includes(direction) && current === this.getLayouts().length - 1) {
             return false;
         }
 
@@ -58,7 +59,7 @@ class List extends Recycler {
 
     public getFocusTaskExecutor(_direction: string): AbstractFocusModel {
         return this;
-    };
+    }
 }
 
 export default List;
