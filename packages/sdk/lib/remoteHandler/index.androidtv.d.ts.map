@@ -1,0 +1,1 @@
+{"version":3,"file":"index.androidtv.d.ts","sourceRoot":"","sources":["../../src/remoteHandler/index.androidtv.tsx"],"names":[],"mappings":"AAKA,cAAM,eAAe;IACjB,UAAU,EAAE,GAAG,CAAC;IAEhB,MAAM,CAAC,SAAS,EAAE,GAAG,EAAE,QAAQ,EAAE,GAAG,GAAG,IAAI;IAS3C,OAAO,IAAI,IAAI;CAGlB;AAED,iBAAS,kBAAkB,CAAC,QAAQ,EAAE,GAAG,MAoBxC;AAED,OAAO,EAAE,kBAAkB,EAAE,eAAe,EAAE,CAAC"}

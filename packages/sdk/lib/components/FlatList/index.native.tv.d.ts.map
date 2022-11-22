@@ -1,0 +1,1 @@
+{"version":3,"file":"index.native.tv.d.ts","sourceRoot":"","sources":["../../../src/components/FlatList/index.native.tv.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAE,QAAQ,IAAI,UAAU,EAAE,MAAM,cAAc,CAAC;AACtD,OAAO,KAAK,EAAE,OAAO,EAAE,MAAM,0BAA0B,CAAC;AAExD,QAAA,MAAM,QAAQ;gBAA8C,GAAG;UAAQ,GAAG;mBAAiB,OAAO;yCAgBjG,CAAC;AAIF,eAAe,QAAQ,CAAC"}
