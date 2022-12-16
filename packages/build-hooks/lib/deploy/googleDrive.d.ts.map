@@ -1,0 +1,1 @@
+{"version":3,"file":"googleDrive.d.ts","sourceRoot":"","sources":["../../src/deploy/googleDrive.ts"],"names":[],"mappings":"AAiHA,QAAA,MAAM,iBAAiB,MAAa;IAChC,QAAQ,EAAE,MAAM,CAAC;IACjB,WAAW,EAAE;QACT,EAAE,CAAC,EAAE,MAAM,CAAC;KACf,CAAC;CACL,kBAkBA,CAAC;AAEF,OAAO,EAAE,iBAAiB,EAAE,CAAC"}

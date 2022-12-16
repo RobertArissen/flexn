@@ -1,0 +1,1 @@
+{"version":3,"file":"CustomError.d.ts","sourceRoot":"","sources":["../../../../src/recyclerListView/core/exceptions/CustomError.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,OAAO,WAAY,SAAQ,KAAK;gBAC9B,SAAS,EAAE,SAAS;CAInC;AACD,MAAM,WAAW,SAAS;IACtB,IAAI,EAAE,MAAM,CAAC;IACb,OAAO,EAAE,MAAM,CAAC;CACnB"}

@@ -165,16 +165,16 @@ public enum Direction: Int {
 
 public extension UIPanGestureRecognizer {
     func guessDirection(view: UIView) -> Direction? {
-        let _translation = translation(in: view)
-        let vertical = fabs(_translation.y) > fabs(_translation.x)
+        let velocity = self.velocity(in: view)
+        let vertical = abs(velocity.y) > abs(velocity.x)
 
         if (vertical) {
-            if (_translation.y < 0) {
+            if (velocity.y < 0) {
                 return .Up
             }
             return .Down
         } else {
-            if (_translation.x > 0) {
+            if (velocity.x > 0) {
                 return .Right
             }
             return .Left

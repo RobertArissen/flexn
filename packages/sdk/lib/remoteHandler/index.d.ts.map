@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../src/remoteHandler/index.tsx"],"names":[],"mappings":"AAEA,cAAM,eAAe;IACjB,MAAM,CAAC,UAAU,EAAE,GAAG,EAAE,SAAS,EAAE,GAAG;IAItC,OAAO;CAGV;AAED,QAAA,MAAM,kBAAkB,aAAc,GAAG,eAAe,GAAG,OAM1D,CAAC;AACF,OAAO,EAAE,kBAAkB,EAAE,eAAe,EAAE,CAAC"}

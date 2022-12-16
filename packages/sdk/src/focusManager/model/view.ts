@@ -73,10 +73,15 @@ class View extends AbstractFocusModel {
         return true;
     }
 
-    public updateEvents({ onPress, onFocus, onBlur }: any) {
+    public updateEvents({ onPress, onFocus, onBlur, nextFocusRight, nextFocusLeft, nextFocusUp, nextFocusDown }: any) {
         this._onPress = onPress;
         this._onFocus = onFocus;
         this._onBlur = onBlur;
+
+        this._nextFocusRight = nextFocusRight;
+        this._nextFocusLeft = nextFocusLeft;
+        this._nextFocusUp = nextFocusUp;
+        this._nextFocusDown = nextFocusDown;
 
         return this;
     }

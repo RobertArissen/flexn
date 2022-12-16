@@ -3,7 +3,7 @@ import Recycler from './recycler';
 import View from './view';
 import Core from './core';
 import Scroller from './scroller';
-import { DIRECTION_VERTICAL } from '../constants';
+import { DIRECTION_HORIZONTAL, DIRECTION_LEFT, DIRECTION_RIGHT, DIRECTION_VERTICAL } from '../constants';
 
 class Row extends Recycler {
     constructor(params: any) {
@@ -25,7 +25,7 @@ class Row extends Recycler {
     }
 
     public getNextFocusable(direction: string): AbstractFocusModel | undefined | null {
-        if (this._isInBounds(direction) && ['right', 'left'].includes(direction)) {
+        if (this._isInBounds(direction) && DIRECTION_HORIZONTAL.includes(direction)) {
             const candidates = Object.values(Core.getFocusMap()).filter(
                 (c) =>
                     c.isInForeground() &&
@@ -35,11 +35,11 @@ class Row extends Recycler {
             );
 
             return Core.getNextFocusableContext(direction, candidates, false);
-        } else if (!this._isInBounds(direction) || ['up', 'down'].includes(direction)) {
+        } else if (!this._isInBounds(direction) || DIRECTION_VERTICAL.includes(direction)) {
             const nextFocus = Core.getNextFocusableContext(direction);
 
             if (
-                ['right', 'left'].includes(direction) &&
+                DIRECTION_HORIZONTAL.includes(direction) &&
                 nextFocus?.getParent()?.isRecyclable() &&
                 nextFocus?.getParent()?.isHorizontal()
             ) {
@@ -53,15 +53,15 @@ class Row extends Recycler {
     private _isInBounds(direction: string): boolean {
         const current = this.getCurrentFocusIndex();
 
-        if (!this.isHorizontal() && ['right', 'left'].includes(direction)) {
+        if (!this.isHorizontal() && DIRECTION_HORIZONTAL.includes(direction)) {
             return false;
         }
 
-        if (direction === 'left' && current === 0) {
+        if (DIRECTION_LEFT.includes(direction) && current === 0) {
             return false;
         }
 
-        if (direction === 'right' && current === this.getLayouts().length - 1) {
+        if (DIRECTION_RIGHT.includes(direction) && current === this.getLayouts().length - 1) {
             return false;
         }
 
