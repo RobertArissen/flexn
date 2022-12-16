@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { CSSProperties } from 'react';
-
 import { Dimension } from '../dependencies/LayoutProvider';
 export interface ScrollViewDefaultProps {
     onScroll: (event: ScrollEvent) => void;

@@ -32,8 +32,9 @@ var Screen = react_1.default.forwardRef(function (_a, refOuter) {
     (0, react_1.useEffect)(function () { return function () {
         core_1.default.removeFocusable(ClsInstance);
     }; }, []);
-    var onLayout = function () {
-        (0, layoutManager_1.measure)(ClsInstance, ref);
+    var onLayout = function (_a) {
+        var layout = _a.nativeEvent.layout;
+        (0, layoutManager_1.measure)(ClsInstance, ref, undefined, undefined, layout);
     };
     var childrenWithProps = react_1.default.Children.map(children, function (child) {
         if (react_1.default.isValidElement(child)) {
@@ -41,7 +42,7 @@ var Screen = react_1.default.forwardRef(function (_a, refOuter) {
         }
         return child;
     });
-    return (react_1.default.createElement(react_native_1.View, tslib_1.__assign({ style: [{ flex: 1 }, style] }, props, { ref: ref, onLayout: onLayout }), childrenWithProps));
+    return (react_1.default.createElement(react_native_1.View, tslib_1.__assign({ style: [{ flex: 1 }, style] }, props, { ref: ref, collapsable: false, onLayout: onLayout }), childrenWithProps));
 });
 Screen.displayName = 'Screen';
 exports.default = Screen;

@@ -38,15 +38,15 @@ var ScrollView = react_1.default.forwardRef(function (_a, refOuter) {
             core_1.default.removeFocusable(ClsInstance);
         };
     }, []);
-    var onLayout = function () {
-        (0, layoutManager_1.measure)(ClsInstance, ref);
+    var onLayout = function (_a) {
+        var layout = _a.nativeEvent.layout;
+        (0, layoutManager_1.measure)(ClsInstance, ref, undefined, undefined, layout);
     };
-    return (react_1.default.createElement(react_native_1.ScrollView, tslib_1.__assign({ ref: ref, onLayout: onLayout, style: style, horizontal: horizontal, scrollEnabled: false, scrollEventThrottle: 320, onScroll: function (event) {
+    return (react_1.default.createElement(react_native_1.ScrollView, tslib_1.__assign({ collapsable: false, ref: ref, onLayout: onLayout, style: style, horizontal: horizontal, scrollEnabled: false, scrollEventThrottle: 320, onScroll: function (event) {
             var _a = event.nativeEvent.contentSize, height = _a.height, width = _a.width;
             var _b = event.nativeEvent.contentOffset, y = _b.y, x = _b.x;
             var scrollContentHeight = event.nativeEvent.layoutMeasurement.height;
-            ClsInstance
-                .setScrollOffsetY(y)
+            ClsInstance.setScrollOffsetY(y)
                 .setScrollOffsetX(x)
                 .updateLayoutProperty('yMaxScroll', height)
                 .updateLayoutProperty('xMaxScroll', width)
