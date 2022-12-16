@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useImperativeHandle } from 'react';
-import { ScrollView as RNScrollView } from 'react-native';
+import { LayoutChangeEvent, ScrollView as RNScrollView } from 'react-native';
 import type { ScrollViewProps } from '../../focusManager/types';
 import CoreManager from '../../focusManager/model/core';
 import { measure, recalculateLayout } from '../../focusManager/layoutManager';
@@ -44,12 +44,13 @@ const ScrollView = React.forwardRef<any, ScrollViewProps>(
             };
         }, []);
 
-        const onLayout = () => {
-            measure(ClsInstance, ref);
+        const onLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
+            measure(ClsInstance, ref, undefined, undefined, layout);
         };
 
         return (
             <RNScrollView
+                collapsable={false}
                 ref={ref}
                 onLayout={onLayout}
                 style={style}
@@ -61,15 +62,13 @@ const ScrollView = React.forwardRef<any, ScrollViewProps>(
                     const { y, x } = event.nativeEvent.contentOffset;
                     const { height: scrollContentHeight } = event.nativeEvent.layoutMeasurement;
 
-                    ClsInstance
-                        .setScrollOffsetY(y)
+                    ClsInstance.setScrollOffsetY(y)
                         .setScrollOffsetX(x)
                         .updateLayoutProperty('yMaxScroll', height)
                         .updateLayoutProperty('xMaxScroll', width)
                         .updateLayoutProperty('scrollContentHeight', scrollContentHeight);
 
                     ClsInstance.recalculateChildrenLayouts(ClsInstance);
-
                 }}
                 {...props}
             >

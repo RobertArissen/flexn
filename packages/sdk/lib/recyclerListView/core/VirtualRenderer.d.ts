@@ -1,10 +1,10 @@
-import { BaseDataProvider } from './dependencies/DataProvider';
 import { BaseLayoutProvider } from './dependencies/LayoutProvider';
 import type { Dimension } from './dependencies/LayoutProvider';
 import { LayoutManager } from './layoutmanager/LayoutManager';
 import type { Point } from './layoutmanager/LayoutManager';
 import ViewabilityTracker from './ViewabilityTracker';
 import type { TOnItemStatusChanged, WindowCorrection } from './ViewabilityTracker';
+import { BaseDataProvider } from './dependencies/DataProvider';
 /***
  * Renderer which keeps track of recyclable items and the currently rendered items. Notifies list view to re render if something changes, like scroll offset
  */

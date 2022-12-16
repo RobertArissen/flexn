@@ -1,18 +1,16 @@
 import * as React from 'react';
-
-import { DebugHandlers } from '..';
-import { ComponentCompat } from '../utils/ComponentCompat';
-
 import ContextProvider from './dependencies/ContextProvider';
 import { BaseDataProvider } from './dependencies/DataProvider';
 import { Dimension, BaseLayoutProvider } from './dependencies/LayoutProvider';
-import ItemAnimator from './ItemAnimator';
 import type { Layout } from './layoutmanager/LayoutManager';
 import BaseScrollView from './scrollcomponent/BaseScrollView';
 import type { ScrollEvent, ScrollViewDefaultProps } from './scrollcomponent/BaseScrollView';
 import { TOnItemStatusChanged, WindowCorrection } from './ViewabilityTracker';
 import VirtualRenderer from './VirtualRenderer';
 import type { RenderStack } from './VirtualRenderer';
+import ItemAnimator from './ItemAnimator';
+import { DebugHandlers } from '..';
+import { ComponentCompat } from '../utils/ComponentCompat';
 /***
  * To use on web, start importing from recyclerlistview/web. To make it even easier specify an alias in you builder of choice.
  */

@@ -4,7 +4,7 @@ import type { ViewProps } from '../../focusManager/types';
 
 const View = React.forwardRef<any, ViewProps>(({ children, parentContext, ...props }, ref) => {
     return (
-        <Pressable parentContext={parentContext} {...props} focus={false} ref={ref}>
+        <Pressable collapsable={false} parentContext={parentContext} {...props} focus={false} ref={ref}>
             {children}
         </Pressable>
     );

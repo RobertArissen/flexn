@@ -86,14 +86,15 @@ function RecyclerView(_a) {
     var marginLeft = parseStyleProps(flattenStyles === null || flattenStyles === void 0 ? void 0 : flattenStyles.marginLeft);
     var top = parseStyleProps(flattenStyles === null || flattenStyles === void 0 ? void 0 : flattenStyles.top);
     var left = parseStyleProps(flattenStyles === null || flattenStyles === void 0 ? void 0 : flattenStyles.left);
-    var onLayout = function () {
+    var onLayout = function (_a) {
+        var layout = _a.nativeEvent.layout;
         var unmeasurableDimensions = {
             x: paddingLeft + marginLeft + left + (unmeasurableRelativeDimensions.x || 0),
             y: paddingTop + marginTop + top + (unmeasurableRelativeDimensions.y || 0),
         };
-        (0, layoutManager_1.measure)(ClsInstance, rnViewRef, unmeasurableDimensions);
+        (0, layoutManager_1.measure)(ClsInstance, rnViewRef, unmeasurableDimensions, undefined, layout);
     };
-    return (react_1.default.createElement(react_native_1.View, { ref: rnViewRef, onLayout: onLayout, style: style },
+    return (react_1.default.createElement(react_native_1.View, { ref: rnViewRef, onLayout: onLayout, style: style, collapsable: false },
         react_1.default.createElement(recyclerListView_1.RecyclerListView, tslib_1.__assign({ ref: rlvRef, dataProvider: dataProvider, scrollViewProps: tslib_1.__assign(tslib_1.__assign({}, scrollViewProps), { ref: function (ref) {
                     // eslint-disable-next-line no-underscore-dangle
                     scrollViewRef.current = ref === null || ref === void 0 ? void 0 : ref._scrollViewRef; // `scrollTo()` is not working otherwise

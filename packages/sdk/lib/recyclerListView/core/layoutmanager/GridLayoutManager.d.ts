@@ -1,7 +1,6 @@
 import { LayoutProvider } from '../dependencies/LayoutProvider';
-import { Dimension } from '../dependencies/LayoutProvider';
-
 import { WrapGridLayoutManager, Layout } from './LayoutManager';
+import { Dimension } from '../dependencies/LayoutProvider';
 export declare class GridLayoutManager extends WrapGridLayoutManager {
     private _maxSpan;
     private _getSpan;

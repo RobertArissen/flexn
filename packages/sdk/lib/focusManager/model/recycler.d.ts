@@ -1,6 +1,5 @@
-import { ForbiddenFocusDirections } from '../types';
-
 import AbstractFocusModel from './AbstractFocusModel';
+import { ForbiddenFocusDirections } from '../types';
 import View from './view';
 declare class Recycler extends AbstractFocusModel {
     protected _type: string;

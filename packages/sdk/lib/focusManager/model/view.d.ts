@@ -1,6 +1,5 @@
-import { ForbiddenFocusDirections } from '../types';
-
 import AbstractFocusModel from './AbstractFocusModel';
+import { ForbiddenFocusDirections } from '../types';
 declare class View extends AbstractFocusModel {
     private _type;
     private _parent?;

@@ -1,1 +1,1 @@
-{"version":3,"file":"index.native.tv.d.ts","sourceRoot":"","sources":["../../../src/components/ScrollView/index.native.tv.tsx"],"names":[],"mappings":"AAAA,OAAO,KAA2D,MAAM,OAAO,CAAC;AAEhF,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,0BAA0B,CAAC;AAKhE,QAAA,MAAM,UAAU,uoFAwEf,CAAC;AAEF,eAAe,UAAU,CAAC"}
+{"version":3,"file":"index.native.tv.d.ts","sourceRoot":"","sources":["../../../src/components/ScrollView/index.native.tv.tsx"],"names":[],"mappings":"AAAA,OAAO,KAA2D,MAAM,OAAO,CAAC;AAEhF,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,0BAA0B,CAAC;AAKhE,QAAA,MAAM,UAAU,uoFAuEf,CAAC;AAEF,eAAe,UAAU,CAAC"}

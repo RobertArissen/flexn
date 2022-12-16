@@ -1,7 +1,6 @@
 import React from 'react';
-
-import AbstractFocusModel from './model/AbstractFocusModel';
 import { ForbiddenFocusDirections } from './types';
+import AbstractFocusModel from './model/AbstractFocusModel';
 export declare function makeid(length: number): string;
 export declare function flattenStyle(style: any): any;
 export declare function getDirectionName(direction: string): string;

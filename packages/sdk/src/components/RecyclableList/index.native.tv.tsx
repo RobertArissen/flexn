@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View as RNView, StyleSheet } from 'react-native';
+import { View as RNView, StyleSheet, LayoutChangeEvent } from 'react-native';
 import {
     DataProvider as RecyclableListDataProvider,
     LayoutProvider as RecyclableListLayoutProvider,
@@ -126,16 +126,16 @@ export default function RecyclerView({
     const top = parseStyleProps(flattenStyles?.top);
     const left = parseStyleProps(flattenStyles?.left);
 
-    const onLayout = () => {
+    const onLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
         const unmeasurableDimensions = {
             x: paddingLeft + marginLeft + left + (unmeasurableRelativeDimensions.x || 0),
             y: paddingTop + marginTop + top + (unmeasurableRelativeDimensions.y || 0),
         };
-        measure(ClsInstance, rnViewRef, unmeasurableDimensions);
+        measure(ClsInstance, rnViewRef, unmeasurableDimensions, undefined, layout);
     };
 
     return (
-        <RNView ref={rnViewRef} onLayout={onLayout} style={style}>
+        <RNView ref={rnViewRef} onLayout={onLayout} style={style} collapsable={false}>
             <RecyclerListView
                 ref={rlvRef}
                 dataProvider={dataProvider}

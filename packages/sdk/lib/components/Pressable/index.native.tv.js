@@ -86,11 +86,12 @@ var View = react_1.default.forwardRef(function (_a, refOuter) {
         }
         return child;
     });
-    var onLayout = function () {
+    var onLayout = function (_a) {
+        var layout = _a.nativeEvent.layout;
         (0, layoutManager_1.measure)(ViewInstance, ref, undefined, function () {
             var _a;
             (_a = ViewInstance.getScreen()) === null || _a === void 0 ? void 0 : _a.removeComponentFromPendingLayoutMap(ViewInstance.getId());
-        });
+        }, layout);
     };
     // In recycled mode we must re-measure on render
     if (repeatContext && ref.current) {
@@ -120,7 +121,7 @@ var View = react_1.default.forwardRef(function (_a, refOuter) {
         }
         return (react_1.default.createElement(focusableView_1.default, tslib_1.__assign({ isTVSelectable: true, style: flattenedStyle, onLayout: onLayout, animatorOptions: animatorOptions }, borderProps, props, { ref: ref }), childrenWithProps));
     }
-    return (react_1.default.createElement(react_native_1.View, tslib_1.__assign({ style: style }, props, { ref: ref }), childrenWithProps));
+    return (react_1.default.createElement(react_native_1.View, tslib_1.__assign({ style: style }, props, { ref: ref, collapsable: false }), childrenWithProps));
 });
 View.displayName = 'View';
 exports.default = View;

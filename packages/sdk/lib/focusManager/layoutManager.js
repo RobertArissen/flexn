@@ -46,9 +46,25 @@ function recalculateLayout(cls) {
     recalculateAbsolutes(cls);
 }
 exports.recalculateLayout = recalculateLayout;
-function measure(cls, ref, unmeasurableRelatives, callback) {
+function measure(cls, ref, unmeasurableRelatives, callback, fallbackLayout) {
     ref.current.measure(function (_, __, width, height, pageX, pageY) {
         var _a, _b, _c, _d, _e, _f, _g, _h;
+        if (fallbackLayout) {
+            if (width === undefined) {
+                // eslint-disable-next-line prefer-destructuring
+                width = fallbackLayout.width;
+            }
+            if (height === undefined) {
+                // eslint-disable-next-line prefer-destructuring
+                height = fallbackLayout.height;
+            }
+            if (pageX === undefined) {
+                pageX = fallbackLayout.x;
+            }
+            if (pageY === undefined) {
+                pageY = fallbackLayout.y;
+            }
+        }
         var pgX;
         var pgY;
         var repeatContext = cls.getRepeatContext();
