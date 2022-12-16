@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View as RNView } from 'react-native';
+import { LayoutChangeEvent, View as RNView } from 'react-native';
 import { isPlatformTvos } from '@rnv/renative';
 import { useCombinedRefs, usePrevious, flattenStyle } from '../../focusManager/helpers';
 import type { ViewProps } from '../../focusManager/types';
@@ -96,7 +96,6 @@ const View = React.forwardRef<any, ViewProps>(
 
             return () => {
                 if (focus) {
-
                     CoreManager.removeFocusable(ViewInstance);
                     ViewInstance.getScreen()?.onViewRemoved(ViewInstance);
                 }
@@ -113,10 +112,16 @@ const View = React.forwardRef<any, ViewProps>(
             return child;
         });
 
-        const onLayout = () => {
-            measure(ViewInstance, ref, undefined, () => {
-                ViewInstance.getScreen()?.removeComponentFromPendingLayoutMap(ViewInstance.getId());
-            });
+        const onLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
+            measure(
+                ViewInstance,
+                ref,
+                undefined,
+                () => {
+                    ViewInstance.getScreen()?.removeComponentFromPendingLayoutMap(ViewInstance.getId());
+                },
+                layout
+            );
         };
 
         // In recycled mode we must re-measure on render
@@ -163,7 +168,7 @@ const View = React.forwardRef<any, ViewProps>(
         }
 
         return (
-            <RNView style={style} {...props} ref={ref}>
+            <RNView style={style} {...props} ref={ref} collapsable={false}>
                 {childrenWithProps}
             </RNView>
         );

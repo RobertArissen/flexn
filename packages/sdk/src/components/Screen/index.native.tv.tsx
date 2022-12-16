@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View as RNView } from 'react-native';
+import { LayoutChangeEvent, View as RNView } from 'react-native';
 import { SCREEN_STATES } from '../../focusManager/constants';
 import type { ScreenProps } from '../../focusManager/types';
 import { useCombinedRefs } from '../../focusManager/helpers';
@@ -63,8 +63,8 @@ const Screen = React.forwardRef<any, ScreenProps>(
             []
         );
 
-        const onLayout = () => {
-            measure(ClsInstance, ref);
+        const onLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
+            measure(ClsInstance, ref, undefined, undefined, layout);
         };
 
         const childrenWithProps = React.Children.map(children, (child) => {
@@ -75,7 +75,7 @@ const Screen = React.forwardRef<any, ScreenProps>(
         });
 
         return (
-            <RNView style={[{ flex: 1 }, style]} {...props} ref={ref} onLayout={onLayout}>
+            <RNView style={[{ flex: 1 }, style]} {...props} ref={ref} collapsable={false} onLayout={onLayout}>
                 {childrenWithProps}
             </RNView>
         );

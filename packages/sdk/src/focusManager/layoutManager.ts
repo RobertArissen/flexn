@@ -1,3 +1,4 @@
+import { LayoutRectangle } from 'react-native';
 import { CONTEXT_TYPES } from './constants';
 import AbstractFocusModel from './model/AbstractFocusModel';
 import Screen from './model/screen';
@@ -57,9 +58,29 @@ function measure(
     cls: AbstractFocusModel,
     ref: any,
     unmeasurableRelatives?: { x: number; y: number },
-    callback?: () => void
+    callback?: () => void,
+    fallbackLayout?: LayoutRectangle
 ) {
     ref.current.measure((_: number, __: number, width: number, height: number, pageX: number, pageY: number) => {
+        if (fallbackLayout) {
+            if (width === undefined) {
+                // eslint-disable-next-line prefer-destructuring
+                width = fallbackLayout.width;
+            }
+
+            if (height === undefined) {
+                // eslint-disable-next-line prefer-destructuring
+                height = fallbackLayout.height;
+            }
+
+            if (pageX === undefined) {
+                pageX = fallbackLayout.x;
+            }
+            if (pageY === undefined) {
+                pageY = fallbackLayout.y;
+            }
+        }
+
         let pgX;
         let pgY;
 
