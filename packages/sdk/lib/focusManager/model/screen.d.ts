@@ -1,4 +1,5 @@
 import { ScreenStates, ForbiddenFocusDirections } from '../types';
+
 import AbstractFocusModel from './AbstractFocusModel';
 import View from './view';
 export declare const STATE_BACKGROUND: ScreenStates;

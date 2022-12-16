@@ -44,10 +44,14 @@ var View = /** @class */ (function (_super) {
         return true;
     };
     View.prototype.updateEvents = function (_a) {
-        var onPress = _a.onPress, onFocus = _a.onFocus, onBlur = _a.onBlur;
+        var onPress = _a.onPress, onFocus = _a.onFocus, onBlur = _a.onBlur, nextFocusRight = _a.nextFocusRight, nextFocusLeft = _a.nextFocusLeft, nextFocusUp = _a.nextFocusUp, nextFocusDown = _a.nextFocusDown;
         this._onPress = onPress;
         this._onFocus = onFocus;
         this._onBlur = onBlur;
+        this._nextFocusRight = nextFocusRight;
+        this._nextFocusLeft = nextFocusLeft;
+        this._nextFocusUp = nextFocusUp;
+        this._nextFocusDown = nextFocusDown;
         return this;
     };
     View.prototype.setFocus = function () {

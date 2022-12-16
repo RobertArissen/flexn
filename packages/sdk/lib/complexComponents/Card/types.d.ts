@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleProp, ViewStyle, ImageURISource } from 'react-native';
+
 import { Context, PressableFocusOptions } from '../../focusManager/types';
 declare type ImageResizeMode = 'cover' | 'contain' | 'stretch' | 'repeat' | 'center';
 export interface CardProps extends React.ComponentPropsWithRef<any> {

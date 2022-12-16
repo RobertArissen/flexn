@@ -1,8 +1,9 @@
 import type { GestureResponderEvent, ScrollViewProps as RNScrollViewProps, StyleProp, ViewProps as RNViewProps, PressableProps as RNPressableProps, ViewStyle, ScrollView } from 'react-native';
+
 import AbstractModel from './model/AbstractFocusModel';
-import ViewModel from './model/view';
 import RecyclerModel from './model/recycler';
 import ScreenModel from './model/screen';
+import ViewModel from './model/view';
 export declare type ForbiddenFocusDirections = 'down' | 'up' | 'left' | 'right' | 'swipeDown' | 'swipeUp' | 'swipeLeft' | 'swipeRight';
 export declare type WindowAlignment = 'both-edge' | 'low-edge';
 export declare type ScreenStates = 'background' | 'foreground';

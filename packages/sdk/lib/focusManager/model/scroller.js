@@ -15,6 +15,9 @@ var Scroller = /** @class */ (function () {
             console.warn('Current context were removed during scroll find');
             return;
         }
+        if (currentFocus.getForbiddenFocusDirections().includes('scroll')) {
+            return null;
+        }
         var scrollContextParents = this.getParentScrollers(currentFocus);
         scrollContextParents.forEach(function (p) {
             var scrollTarget = p.isHorizontal()

@@ -1,5 +1,6 @@
-import AbstractFocusModel from './AbstractFocusModel';
 import { ForbiddenFocusDirections } from '../types';
+
+import AbstractFocusModel from './AbstractFocusModel';
 declare class View extends AbstractFocusModel {
     private _type;
     private _parent?;
@@ -15,7 +16,7 @@ declare class View extends AbstractFocusModel {
     private init;
     getType(): string;
     isFocusable(): boolean;
-    updateEvents({ onPress, onFocus, onBlur }: any): this;
+    updateEvents({ onPress, onFocus, onBlur, nextFocusRight, nextFocusLeft, nextFocusUp, nextFocusDown }: any): this;
     setFocus(): void;
     onFocus(): void;
     onBlur(): void;

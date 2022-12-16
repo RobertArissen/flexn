@@ -1,4 +1,5 @@
 import { StyleProp, ViewStyle, TextStyle } from 'react-native';
+
 import { Context, RecyclableListFocusOptions } from '../../focusManager/types';
 declare type RowItem = {
     backgroundImage: string;

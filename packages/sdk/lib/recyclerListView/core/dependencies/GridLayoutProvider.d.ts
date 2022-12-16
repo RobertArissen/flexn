@@ -1,5 +1,6 @@
-import { LayoutProvider, Dimension } from './LayoutProvider';
 import { Layout, LayoutManager } from '../layoutmanager/LayoutManager';
+
+import { LayoutProvider, Dimension } from './LayoutProvider';
 export declare class GridLayoutProvider extends LayoutProvider {
     private _getHeightOrWidth;
     private _getSpan;
