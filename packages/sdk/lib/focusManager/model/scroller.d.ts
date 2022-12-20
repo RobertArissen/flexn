@@ -1,7 +1,7 @@
 import AbstractFocusModel from './AbstractFocusModel';
 import Recycler from './recycler';
 declare class Scroller {
-    scroll(direction: string, contextParameters: any): void;
+    scroll(direction: string, contextParameters: any): null | undefined;
     scrollTo(cls: AbstractFocusModel, scrollTarget: {
         x: number;
         y: number;

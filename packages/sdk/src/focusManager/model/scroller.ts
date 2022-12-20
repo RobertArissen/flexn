@@ -27,6 +27,10 @@ class Scroller {
             return;
         }
 
+        if (currentFocus.getForbiddenFocusDirections().includes('scroll')) {
+            return null;
+        }
+
         const scrollContextParents = this.getParentScrollers(currentFocus);
 
         scrollContextParents.forEach((p: AbstractFocusModel) => {
