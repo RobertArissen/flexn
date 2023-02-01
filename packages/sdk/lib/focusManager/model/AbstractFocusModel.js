@@ -106,6 +106,15 @@ var AbstractFocusModel = /** @class */ (function () {
             (0, layoutManager_1.recalculateLayout)(ch);
         }
     };
+    AbstractFocusModel.prototype.remeasureChildrenLayouts = function (ch) {
+        var _this = this;
+        ch.getChildren().forEach(function (a) {
+            _this.remeasureChildrenLayouts(a);
+        });
+        if (ch.isInForeground()) {
+            (0, layoutManager_1.measure)(ch, ch.node);
+        }
+    };
     AbstractFocusModel.prototype.getNextFocusRight = function () {
         return this._nextFocusRight || '';
     };
@@ -216,7 +225,6 @@ var AbstractFocusModel = /** @class */ (function () {
         }
         return null;
     };
-    ;
     return AbstractFocusModel;
 }());
 exports.default = AbstractFocusModel;

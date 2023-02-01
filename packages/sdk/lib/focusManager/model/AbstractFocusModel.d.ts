@@ -31,6 +31,7 @@ export default abstract class AbstractFocusModel {
     getMostBottomChildren(): AbstractFocusModel;
     getMostRightChildren(): AbstractFocusModel;
     recalculateChildrenLayouts(ch: AbstractFocusModel): void;
+    remeasureChildrenLayouts(ch: AbstractFocusModel): void;
     getNextFocusRight(): string | string[];
     getNextFocusLeft(): string | string[];
     getNextFocusUp(): string | string[];

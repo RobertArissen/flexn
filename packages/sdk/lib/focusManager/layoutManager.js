@@ -48,7 +48,7 @@ function recalculateLayout(cls) {
 exports.recalculateLayout = recalculateLayout;
 function measure(cls, ref, unmeasurableRelatives, callback, fallbackLayout) {
     ref.current.measure(function (_, __, width, height, pageX, pageY) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         if (fallbackLayout) {
             if (width === undefined) {
                 // eslint-disable-next-line prefer-destructuring
@@ -113,17 +113,17 @@ function measure(cls, ref, unmeasurableRelatives, callback, fallbackLayout) {
             xOffsetDiff: 0,
         };
         if (!repeatContext) {
-            if (cls.getLayout()) {
+            if (cls.getLayout() && ((_d = cls.getParent()) === null || _d === void 0 ? void 0 : _d.isRecyclable())) {
                 layout.yOffsetDiff = cls.getLayout().yOffsetDiff;
                 layout.xOffsetDiff = cls.getLayout().xOffsetDiff;
                 layout.yOffsetDiff =
                     layout.yOffsetDiff === 0
-                        ? ((_d = cls.getLayout()) === null || _d === void 0 ? void 0 : _d.yMin) - pgY
-                        : layout.yOffsetDiff + (((_e = cls.getLayout()) === null || _e === void 0 ? void 0 : _e.yMin) - pgY);
+                        ? ((_e = cls.getLayout()) === null || _e === void 0 ? void 0 : _e.yMin) - pgY
+                        : layout.yOffsetDiff + (((_f = cls.getLayout()) === null || _f === void 0 ? void 0 : _f.yMin) - pgY);
                 layout.xOffsetDiff =
                     layout.xOffsetDiff === 0
-                        ? ((_f = cls.getLayout()) === null || _f === void 0 ? void 0 : _f.xMin) - pgX
-                        : layout.xOffsetDiff + (((_g = cls.getLayout()) === null || _g === void 0 ? void 0 : _g.xMin) - pgX);
+                        ? ((_g = cls.getLayout()) === null || _g === void 0 ? void 0 : _g.xMin) - pgX
+                        : layout.xOffsetDiff + (((_h = cls.getLayout()) === null || _h === void 0 ? void 0 : _h.xMin) - pgX);
             }
             else {
                 var offsetX = 0;
@@ -143,7 +143,7 @@ function measure(cls, ref, unmeasurableRelatives, callback, fallbackLayout) {
         // TODO: move it out from here
         var parent = cls.getParent();
         if ((parent === null || parent === void 0 ? void 0 : parent.isScrollable()) && (parent === null || parent === void 0 ? void 0 : parent.getLayout())) {
-            var pCtx = (_h = cls === null || cls === void 0 ? void 0 : cls.getRepeatContext()) === null || _h === void 0 ? void 0 : _h.parentContext;
+            var pCtx = (_j = cls === null || cls === void 0 ? void 0 : cls.getRepeatContext()) === null || _j === void 0 ? void 0 : _j.parentContext;
             if (pCtx) {
                 var rLayout = pCtx.getLayouts()[pCtx.getLayouts().length - 1];
                 parent.updateLayoutProperty('xMaxScroll', pCtx.getLayout().xMin + width + rLayout.x);
